@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love Tamanna</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose-pink: #ff4d6d;
+            --soft-pink: #fff0f3;
+            --deep-red: #800f2f;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(rgba(255, 240, 243, 0.8), rgba(255, 240, 243, 0.8)), 
+                        url('https://images.unsplash.com/photo-1559563362-c667bb5f5480?q=80&w=2000&auto=format&fit=crop'); 
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Dancing Script', cursive;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .heart-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60vw;
+            color: rgba(255, 77, 109, 0.05);
+            z-index: -1;
+            user-select: none;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.5rem;
+            color: var(--deep-red);
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .photo-columns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 90%;
+            max-width: 1100px;
+            margin: 20px 0 60px 0;
+        }
+
+        .photo-card {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: rotate(var(--r));
+            transition: 0.3s;
+        }
+
+        .photo-card:hover {
+            transform: rotate(0deg) scale(1.05);
+            z-index: 10;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        .letter-section {
+            height: 500px; /* Increased height to allow letter to pop up */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .envelope {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background: var(--rose-pink);
+            cursor: pointer;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            transition: 0.4s;
+        }
+
+        /* Top Flap */
+        .envelope::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            z-index: 4;
+            border-top: 110px solid #ff758f;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            transform-origin: top;
+            transition: 0.6s ease;
+        }
+
+        .letter {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 270px;
+            height: 180px;
+            background: #fff;
+            padding: 15px;
+            box-sizing: border-box;
+            transition: 0.6s;
+            z-index: 2;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .letter h2 { 
+            color: var(--rose-pink); 
+            margin-top: 0; 
+            font-size: 1.5rem;
+        }
+        
+        .letter p { 
+            font-size: 1.1rem; 
+            color: #444; 
+            line-height: 1.2;
+            margin: 5px 0;
+        }
+
+        .envelope.open::before {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        .envelope.open .letter {
+            transform: translate(-50%, -150px);
+            height: 250px;
+            z-index: 5;
+        }
+
+        .heart-seal {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            z-index: 6;
+            transition: 0.4s;
+        }
+
+        .open .heart-seal { opacity: 0; }
+
+        @media (max-width: 768px) {
+            .photo-columns { 
+                grid-template-columns: 1fr; 
+                width: 80%;
+            }
+            h1 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="heart-bg">❤</div>
+
+    <header>
+        <h1>Tamanna</h1>
+        <p style="font-size: 1.5rem; color: var(--deep-red);">You are the rose in my garden of life.</p>
+    </header>
+
+    <div class="photo-columns">
+        <div class="photo-card" style="--r: -3deg;">
+            <img src="C:\Users\User\OneDrive\Desktop\love1.jpg" alt="Tamanna 1">
+        </div>
+        <div class="photo-card" style="--r: 2deg;">
+            <img src="C:\Users\User\OneDrive\Desktop\love2.jpg"q=80&w=500&auto=format&fit=crop" alt="Tamanna 2">
+        </div>
+        <div class="photo-card" style="--r: -2deg;">
+            <img src="C:\Users\User\OneDrive\Desktop\love3.jpg"q=80&w=500&auto=format&fit=crop" alt="Tamanna 3">
+        </div>
+    </div>
+
+    <div class="letter-section">
+        <div class="envelope" onclick="this.classList.toggle('open')">
+            <div class="heart-seal">💖</div>
+            <div class="letter">
+                <h2>My sweety Tammmuuu,</h2>
+                <p>Every single day I spend with you is a gift.</p>
+                <p>You are more beautiful than any rose, and I love you more than myself januuu.</p>
+                <p><strong>Your pagluuu</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <footer style="margin-bottom: 50px; text-align: center; color: var(--deep-red); width: 100%;">
+        Scroll to explore & click the heart to open
+    </footer>
+
+</body>
+</html>
